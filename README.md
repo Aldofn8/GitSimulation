@@ -15,8 +15,8 @@ Para ejecutar el proyecto, sigue estos simples pasos:
 
 1. Asegúrate de tener instalado .NET Core SDK en tu máquina.
 2. Clona este repositorio en tu computadora utilizando el siguiente comando en tu terminal: git clone https://github.com/Aldofn8/GitSimulation
-3. Navega al directorio del proyecto: cd GitSimulation
-4. Ejecuta el proyecto con el siguiente comando: dotnet run
+3. Navega al directorio del proyecto: `cd GitSimulation`
+4. Ejecuta el proyecto con el siguiente comando: `dotnet run`
 
 
 ¡Y eso es todo! Ahora deberías ver el programa en acción y podrás jugar con él como si estuvieras usando Git de verdad.
