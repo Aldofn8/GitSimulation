@@ -53,6 +53,8 @@ public class Program
                     Commit(mensajeCommit);
                     break;
                 case "push":
+
+
                     Push();
                     break;
                 case "help":
@@ -87,7 +89,6 @@ public class Program
     static void Commit(string mensaje)
     {
 
-        // Obtener archivos modificados en el área de preparación
         List<string> archivosModificados = stagingArea.GetArchivosAgregados();
         if (archivosModificados.Count == 0)
         {
@@ -95,7 +96,7 @@ public class Program
             return;
         }
 
-        // Crear una cadena que representa el commit
+        
         string commitString = $"{mensaje},{DateTime.Now}";
         foreach (string archivo in archivosModificados)
         {
@@ -105,16 +106,16 @@ public class Program
         // Guardar la cadena del commit en un archivo de texto
         File.AppendAllText("commits.txt", commitString + Environment.NewLine);
 
-        // Limpiar el área de preparación después de realizar un commit
+        
         stagingArea.Clear();
 
-        // Mostrar mensaje de éxito
         Console.WriteLine("Se ha realizado el commit con éxito.");
     }
 
     static void Push()
     {
         Console.WriteLine("Los commits locales han sido enviados al servidor remoto.");
+        stagingArea.Clear();
     }
 
     static void Log()
@@ -122,7 +123,6 @@ public class Program
         // Verificar si el archivo de commits existe
         if (File.Exists("commits.txt"))
         {
-            // Leer todas las líneas del archivo de commits
             string[] lines = File.ReadAllLines("commits.txt");
 
             if (lines.Length == 0)
@@ -131,7 +131,7 @@ public class Program
                 return;
             }
 
-            // Mostrar los detalles de cada commit
+            
             Console.WriteLine("Historial de commits:");
             foreach (string line in lines)
             {
@@ -140,7 +140,7 @@ public class Program
                 DateTime fecha = DateTime.Parse(parts[1]);
                 List<string> archivosModificados = new List<string>(parts.Skip(2));
 
-                // Mostrar detalles del commit
+                
                 Console.WriteLine($"Mensaje: {mensaje}");
                 Console.WriteLine($"Fecha: {fecha}");
                 Console.WriteLine("Archivos modificados:");
